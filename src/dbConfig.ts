@@ -10,4 +10,3 @@ export const dbConfig: TypeOrmModuleOptions = {
   autoLoadEntities: true,
   synchronize: true,
 };
-
