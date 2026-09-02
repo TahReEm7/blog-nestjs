@@ -12,4 +12,12 @@ export class Auth {
         nullable: false,
     })
     email: string;
+
+    @Column({
+        name: "password",
+        type: "varchar",
+        length: 255,
+        nullable: false,
+    })
+    password: string;
 }

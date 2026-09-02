@@ -19,4 +19,10 @@ export class Blog {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column({ nullable: true })
+  authorId: string;
+
+  @Column({ nullable: true })
+  author: string;
 }
