@@ -6,7 +6,6 @@ import { AppService } from './app.service.js';
 import { dbConfig } from './dbConfig.js';
 import { UsersModule } from './users/users.module';
 import { BlogsModule } from './blogs/blogs.module';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,7 +13,6 @@ import { AuthModule } from './auth/auth.module';
     TypeOrmModule.forRoot(dbConfig),
     UsersModule,
     BlogsModule,
-    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

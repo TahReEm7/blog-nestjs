@@ -1,4 +1,13 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
+import { User } from "../../users/entities/user.entity";
 
 @Entity()
 export class Blog {
@@ -23,6 +32,7 @@ export class Blog {
   @Column({ nullable: true })
   authorId: string;
 
-  @Column({ nullable: true })
-  author: string;
+  @ManyToOne(() => User, (user) => user.blogs, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'authorId' })
+  user: User;
 }
