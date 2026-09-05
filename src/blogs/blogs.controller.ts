@@ -17,6 +17,11 @@ export class BlogsController {
     return this.blogsService.findAll();
   }
 
+  @Get('user/:userId')
+  findByUser(@Param('userId') userId: string) {
+    return this.blogsService.findByUserId(userId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.blogsService.findOne(id);

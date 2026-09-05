@@ -26,6 +26,15 @@ export class UsersService {
     });
   }
 
+  findOneWithBlogs(id: string) {
+    return this.userRepository.findOne({
+      where: { id },
+      relations: {
+        blogs: true,
+      },
+    });
+  }
+
   update(id: string, updateUserDto: UpdateUserDto) {
     return this.userRepository.update(id, updateUserDto);
   }

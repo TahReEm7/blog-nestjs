@@ -26,6 +26,13 @@ export class UsersController {
     return foundUser;
   }
 
+  @Get(':id/blogs')
+  async findUserBlogs(@Param('id') id: string) {
+    const user = await this.usersService.findOneWithBlogs(id);
+    if (!user) throw new NotFoundException('User not found');
+    return user.blogs;
+  }
+
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     const updatedUser = this.usersService.update(id, updateUserDto);

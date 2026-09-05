@@ -19,12 +19,28 @@ export class BlogsService {
   }
 
   findAll() {
-    return this.blogRepository.find();
+    return this.blogRepository.find({
+      relations: {
+        user: true,
+      },
+    });
+  }
+
+  findByUserId(userId: string) {
+    return this.blogRepository.find({
+      where: { authorId: userId },
+      relations: {
+        user: true,
+      },
+    });
   }
 
   findOne(id: string) {
     return this.blogRepository.findOne({
       where: { id },
+      relations: {
+        user: true,
+      },
     });
   }
 
